@@ -54,6 +54,9 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+      - uses: azure/login@v1  # Можливо, знадобиться оновити версію
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}  # Замініть на ім'я вашого секрету
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
